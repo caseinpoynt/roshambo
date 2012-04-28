@@ -16,6 +16,8 @@ Upon starting your bot will:
 2: wait for your opponent's move in the same format. 
 3: goto 1
 
+You must not use buffered io, this is the default in most languages, but disabling it is usually simple to google.
+
 The scoring:
 
 Your program will be scored in two ways:
