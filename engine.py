@@ -4,16 +4,16 @@ import sys
 import subprocess
 
 table = set([
-    ("rock", "scissors"),
-    ("rock", "lizard"),
-    ("paper", "rock"),
-    ("paper", "spock"),
-    ("scissors", "rock"),
-    ("scissors", "lizard"),
-    ("lizard", "paper"),
-    ("lizard", "spock"),
-    ("spock", "rock"),
-    ("spock", "scissors")
+    ("rock", "scissors"), # crushes
+    ("rock", "lizard"), # crushes
+    ("paper", "rock"), # covers
+    ("paper", "spock"), # disproves
+    ("scissors", "paper"), # cuts
+    ("scissors", "lizard"), # decapite
+    ("lizard", "paper"), # eats
+    ("lizard", "spock"), # poisons
+    ("spock", "rock"), # vaporizes
+    ("spock", "scissors") # smashes
 ])
 
 def score(a, b):
@@ -21,8 +21,7 @@ def score(a, b):
         return (1, 0)
     if (b,a) in table:
         return (0, 1)
-    else:    
-        return (0, 0)
+    return (0, 0)
 
 p1 = subprocess.Popen([sys.argv[1]],stdout=subprocess.PIPE,stdin=subprocess.PIPE, bufsize=0)
 p2 = subprocess.Popen([sys.argv[2]],stdout=subprocess.PIPE,stdin=subprocess.PIPE, bufsize=0)
@@ -30,7 +29,7 @@ p2 = subprocess.Popen([sys.argv[2]],stdout=subprocess.PIPE,stdin=subprocess.PIPE
 p1score = 0
 p2score = 0
 
-for x in range(1000):
+for x in range(10000):
   p1move = p1.stdout.readline()
   p2move = p2.stdout.readline()
   p1.stdin.write(p2move)
