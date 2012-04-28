@@ -41,10 +41,10 @@ for x in range(1000):
   p2score += p2inc
 
 
+print p1score, p2score
+
 p1.stdin.write("goodbye\n")
 p2.stdin.write("goodbye\n")
 p1.wait()
 p2.wait()
 
-
-print p1score, p2score
