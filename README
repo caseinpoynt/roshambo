@@ -1,28 +1,38 @@
 Rock Paper Scissors What?
 http://www.youtube.com/watch?v=iapcKVn7DdY
-Scissors cuts paper, paper covers rock, rock crushes lizard, lizard poisons spock, spock smashes scissors, scissors decapitate lizard, lizard eats paper, paper disproves spock, spock vaporises rock and as always...rock crushes scissors...
-
+Scissors cuts paper, paper covers rock, rock﻿ crushes lizard, lizard poisons spock, spock smashes scissors, scissors decapitate lizard, lizard eats paper, paper disproves spock, spock vaporises rock and as always...rock crushes scissors...
 
 Schedule:
-If you choose to compete, you must work on this outside of normal work hours.
-Source code and build instructions must be emailed to me by the Friday May 25, 2012.
+If you choose to compete, you must work on this outside of normal work hours. Use lunch hours, after work, or the weekends.
+Source code and build instructions must be emailed to me by Friday May 25, 2012.
 The tournament and voting will take place the following week and results will be posted Friday June 1st.
 
 The specs:
 
 Upon starting your bot will:
-1: output your move followed by a newline (\n), one of:
-  "rock", "paper", "scissors", "lizard", "spock"
-2: wait for your opponent's move in the same format. 
-3: goto 1
+1. output your move followed by a newline (\n), a move is one of:
+"rock", "paper", "scissors", "lizard", "spock"
+2. wait for your opponent's move in the same format. 
+3. goto 1
 
 You must not use buffered io, this is the default in most languages, but disabling it is usually simple to google.
+Please try to make it runnable on OS X.
 
 The scoring:
 
 Your program will be scored in two ways:
-  1. We will run a tournament at the end of the month and points will be assigned to the best performing bots. 
-  2. We will post the source code where you will be able to vote on the entrants. 
-  3. Your points will carry over to future challenges.
+1. We will run a tournament at the end of the month and points will be assigned to the best performing bots. 
+2. We will post the source code where you will be able to vote on the entrants. 
+3. *Votes will be worth much more than points from the tournament.*
+4. You can choose to vote based on quality, bribery, coolness, novelness, bribery, campaigning or performance. Whatever floats your boat.
+5. Your points will carry over to future challenges.
+6. If your program fails to run it may be fixed, but you risk disqualification.
 
+I put up the competition engine and samples here, use these to test your bot: 
+https://github.com/caseinpoynt/roshambo 
+
+Run them from the command line: 
+./engine.py <player 1 command> <player 2 command>
+e.g.
+ ./engine.py ./rock.py ./paper.py
 
