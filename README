@@ -26,7 +26,7 @@ Your program will be scored in two ways:
 3. *Votes will be worth much more than points from the tournament.*
 4. You can choose to vote based on quality, bribery, coolness, novelness, bribery, campaigning or performance. Whatever floats your boat.
 5. Your points will carry over to future challenges.
-6. If your program fails to run it may be fixed, but you risk disqualification.
+6. If your program fails to compile or run in a reasonable amount of time it may get fixed, but you risk disqualification.
 
 I put up the competition engine and samples here, use these to test your bot: 
 https://github.com/caseinpoynt/roshambo 
