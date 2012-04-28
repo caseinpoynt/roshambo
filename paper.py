@@ -4,9 +4,8 @@ import sys
 
 moves = []
 while True:
-    print "rock"
+    print "paper"
     move = raw_input()
     if move == "goodbye":
         break
     moves.append(move)
-
