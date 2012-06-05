@@ -1,0 +1,51 @@
+#!/bin/bash
+
+#When run via ./engine.py [bart] ../lisa.sh
+#This script will always write "rock" to [bart]'s stdout.
+
+#Get the pid of the opponent.
+#Improve this.  It will break if engine.py is renamed to referee.py.  
+engine_pid=`ps -ef | grep [e]ngine | awk '{print $2}'`
+
+#Improve this: renaming this file from lisa.sh would cause this to fail.  Use $$ instead.
+bart_pid=`ps -o pid,ppid,command -ax | awk '!/lisa/ && $2 == parent_pid {print $1}' parent_pid=$engine_pid`
+
+#gcc -g: Need to create a.out so I can "include" iovec
+
+#Create the gdb script for Bart's moves.  Stupid Bart always throws rock!
+for i in {1..10000}
+do
+   commands="${commands}rock\\n"
+   length=$(( $length + 5 ))
+done
+
+rm barts_moves.txt
+
+echo 'set $vec=(struct iovec*) malloc (sizeof (struct iovec))' >> barts_moves.txt
+
+echo -n 'p $vec.iov_base="' >> barts_moves.txt
+echo -n "$commands" >> barts_moves.txt
+echo '"' >> barts_moves.txt
+
+echo -n 'p $vec.iov_len=' >> barts_moves.txt
+echo "$length" >> barts_moves.txt
+
+echo 'p (int) writev(1, $vec, 1)' >> barts_moves.txt
+echo 'p (void) free($vec)' >> barts_moves.txt
+echo 'detach' >> barts_moves.txt
+echo 'quit' >> barts_moves.txt
+
+#turn=0;
+#while [ "x$move" != "xgoodbye" ]
+#do
+   #Nothin' beats rock, right Bart!
+   gdb -q ~/a.out -x barts_moves.txt -p $bart_pid > /dev/null 2>&1 &
+   for i in {1..10000}
+   do
+echo $i >&2
+      echo paper
+      read move
+   done
+
+#   turn=$(( $turn + 1 ))
+#done

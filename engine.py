@@ -36,6 +36,8 @@ for x in range(10000):
   p2.stdin.write(p1move)
 
   p1inc, p2inc = score(p1move.strip(), p2move.strip())
+  if x < 10 or x > 9990:
+      print x, p1move.strip() + "(" + str(p1inc) + ") -- ("+ str(p2inc) + ")" + p2move.strip()
   p1score += p1inc
   p2score += p2inc
 
